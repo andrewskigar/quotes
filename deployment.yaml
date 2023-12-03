@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quotes-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: quotes-app
+  template:
+    metadata:
+      labels:
+        app: quotes-app
+    spec:
+      containers:
+      - name: quotes-app
+        image: ghcr.io/andrewskigar/quotes:latest
+        ports:
+        - containerPort: 8080
